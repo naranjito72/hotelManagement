@@ -4,6 +4,8 @@ let bolean = false;
 let numHelper = 0;
 let arrDates = [];
 let numbersFront;
+let myAdults;
+let myKids;
 const getLanguage = () => (navigator.languages || [])[0] || navigator.language || 'es';
 console.log(getLanguage());
 // get the data
@@ -14,6 +16,10 @@ let checkOutDate = document.querySelector('#dateout');
 let priceRoom = Array.from(document.querySelectorAll('.wbkv9-Amount-integerPart'));
 // currency
 let currencyHotel = (document.querySelector('.wbkv9-Entity-amountCurrencyLabel').innerHTML);
+// adults
+let guestsAdults = document.getElementById('adults');
+// kids
+let guestsKids = document.getElementById('kids');
 /**********************************************************************************/
 // it triggers everything
 let allBegins = document.getElementById('bookingBtn');
@@ -50,6 +56,11 @@ function getDates() {
         if (checkSymbol(arrDates[i]) == true)
             arrDates[i] = cleanDate(arrDates[i]);
     }
+    // get me the adults
+    myAdults = getMePeopleFromSelect(guestsAdults);
+    // get me the kids
+    myKids = getMePeopleFromSelect(guestsKids);
+    // create the object
     createData();
     return arrDates;
 }
@@ -57,13 +68,20 @@ function getDates() {
 const showPrice = priceRoom.map((e) => e = e.innerText).sort((a, b) => a - b);
 console.log((priceRoom));
 console.log((showPrice));
-// show me the currency
-/* const showCurrency = (div: HTMLElement) => div.getAttribute('value');
-console.log(showCurrency(currencyHotel)); */
+// "Every time I see an adult on a bicycle, I no longer despair for the future of the human race" (H.G.Wells)
+function getMePeopleFromSelect(people) {
+    let bookedPeople = 0;
+    let getMePeople = getMeValueSelect(people);
+    // making sure is a number
+    bookedPeople = parseInt(getMePeople.value);
+    console.log(getMePeople);
+    return bookedPeople;
+}
+// "Adults are always asking kids what they want to be when they grow up because they are looking for ideas" (Paula Poundstone)
 // create de Object
 function createData() {
     console.log('create works');
-    let newOne = new Hotel(arrDates[0], arrDates[1], showPrice[0], currencyHotel, 4, 2, 1, getLanguage());
+    let newOne = new Hotel(arrDates[0], arrDates[1], showPrice[0], currencyHotel, 4, myAdults, myKids, getLanguage());
     console.log(newOne);
 }
 /************************* aux functions ********************************/
@@ -91,3 +109,5 @@ console.log(cleanAndReverseDate('20-09-2021'));
 console.log(cleanAndReverseDate('20-09/2021'));
 // only change symbol
 const cleanDate = (str) => str.split(/[/-]/).join('-');
+// value from select
+const getMeValueSelect = (str) => (str.options[str.selectedIndex]);

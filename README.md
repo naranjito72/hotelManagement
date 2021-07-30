@@ -15,6 +15,7 @@
   * Get currency
     * [Source one](https://stackoverflow.com/questions/17003133/can-i-get-a-visitors-default-currency-symbol-with-javascript)
     * [Source two](https://stackoverflow.com/questions/44969852/javascript-number-tolocalestring-currency-without-currency-sign)
+    * Get values from a [div](https://stackoverflow.com/questions/47508503/get-value-inside-div-javascript)
   
 
   * Get yyyy-MM-dd
@@ -28,3 +29,7 @@
     * [First](https://stackoverflow.com/questions/609574/get-the-first-integers-in-a-string-with-javascript) integers string
 
     * Split a string with [multiple](https://stackoverflow.com/questions/650022/how-do-i-split-a-string-with-multiple-separators-in-javascript) separators
+
+  * Compare same index two arrays with the same length
+    *  [one](https://stackoverflow.com/questions/49044317/compare-same-index-of-two-array-having-same-length/49044373)
+    *  [two](https://stackoverflow.com/questions/34076624/combine-same-index-objects-of-two-arrays)
