@@ -13,8 +13,9 @@
     * [incredimike](https://gist.github.com/incredimike/1469814) list formats countries js @GitHub
 
   * Get currency
-  https://stackoverflow.com/questions/17003133/can-i-get-a-visitors-default-currency-symbol-with-javascript
-  https://stackoverflow.com/questions/44969852/javascript-number-tolocalestring-currency-without-currency-sign
+    * [Source one](https://stackoverflow.com/questions/17003133/can-i-get-a-visitors-default-currency-symbol-with-javascript)
+    * [Source two](https://stackoverflow.com/questions/44969852/javascript-number-tolocalestring-currency-without-currency-sign)
+  
 
   * Get yyyy-MM-dd
     * [StackOverFlow](https://stackoverflow.com/questions/8040771/how-to-change-date-format-in-javascript)

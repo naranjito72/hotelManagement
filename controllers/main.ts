@@ -53,6 +53,13 @@ console.log(numbersFront)
 bolean = checkSymbol(checkInDate.value);
 console.log(checkInDate.value);
 console.log(checkOutDate.value);
+// check if date comes in dd-MM-yyyy
+// check both i as the arrays will be always the same length
+let i: number = 0;
+for(i; i < arrDates.length; i++){
+    if(numbersFront[i] == 2 ) arrDates[i] = cleanAndReverseDate(arrDates[i]);
+    if(checkSymbol(arrDates[i])== true) arrDates[i] = cleanDate(arrDates[i]);
+}
 createData();
 return arrDates;
 }
@@ -76,6 +83,7 @@ const checkLengthFront = (arr: string[]) => arr.map((e: any) => e = howManyInteg
 const howManyIntegersInFront = (str: string) => str.replace( /[^\d].*/, '' ).length;
 
 // checking special symbol
+// passing throug the regex function i don't need anymore to check for special symbol
 function checkSymbol(str: string): boolean{
     let symbolToCheck: RegExp = /[/]/
     let myHelp: boolean;
@@ -90,7 +98,10 @@ console.log(cleanAndReverseDate('20/09/2021'));
 console.log(cleanAndReverseDate('20-09-2021'));
 console.log(cleanAndReverseDate('20-09/2021'));
 
+// only change symbol
+const cleanDate = (str: string) => str.split(/[/-]/).join('-');
 // reversing format
-const reverseDate = (str: string) => str.split('-').reverse().join('-');
-// console.log(reverseDate('20-01-2012'));
+// using regex I avoid second function
+// const reverseDate = (str: string) => str.split('-').reverse().join('-');
+
 

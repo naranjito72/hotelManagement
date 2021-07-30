@@ -41,6 +41,15 @@ function getDates() {
     bolean = checkSymbol(checkInDate.value);
     console.log(checkInDate.value);
     console.log(checkOutDate.value);
+    // check if date comes in dd-MM-yyyy
+    // check both i as the arrays will be always the same length
+    let i = 0;
+    for (i; i < arrDates.length; i++) {
+        if (numbersFront[i] == 2)
+            arrDates[i] = cleanAndReverseDate(arrDates[i]);
+        if (checkSymbol(arrDates[i]) == true)
+            arrDates[i] = cleanDate(arrDates[i]);
+    }
     createData();
     return arrDates;
 }
@@ -59,6 +68,7 @@ const checkLengthFront = (arr) => arr.map((e) => e = howManyIntegersInFront(e));
 // check how many integers infront
 const howManyIntegersInFront = (str) => str.replace(/[^\d].*/, '').length;
 // checking special symbol
+// passing throug the regex function i don't need anymore to check for special symbol
 function checkSymbol(str) {
     let symbolToCheck = /[/]/;
     let myHelp;
@@ -71,5 +81,5 @@ const cleanAndReverseDate = (str) => str.split(/[/-]/).reverse().join('-');
 console.log(cleanAndReverseDate('20/09/2021'));
 console.log(cleanAndReverseDate('20-09-2021'));
 console.log(cleanAndReverseDate('20-09/2021'));
-// reversing format
-const reverseDate = (str) => str.split('-').reverse().join('-');
+// only change symbol
+const cleanDate = (str) => str.split(/[/-]/).join('-');
