@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,9 +9,10 @@
     <meta name="keywords" content="hotel management reserves">
     <title>Hotel Management</title>
 </head>
+
 <body>
     <header>
-      
+
         <nav class="primary-nav">
             <ul>
                 <li class="menu-item current"><a href="#home">Home</a></li>
@@ -29,7 +31,11 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem placeat, atque accusamus voluptas
                     laudantium facilis iure adipisci ab veritatis eos neque culpa id nostrum tempora tempore minima.
                     Adipisci, obcaecati repellat.</p>
-                    <p class="wbkv9-Amount-integerPart integerPart">2959</p>
+                <p class="wbkv9-Amount-integerPart integerPart">2959</p>
+                <div class="wbkv9-Entity-amountLabelContainer _1ZX7-M-_YU0sEXye5bWpWN">
+                    <div class="wbkv9-Entity-amountCurrencyLabel _1UbZw6VqExeLJtyHT87moJ">EUR</div>
+                    <div class="wbkv9-Entity-nightsLabel _3DE_M6rOCVjpNKJW7lxWXc">noche</div>
+                </div>
                 <button>Read More</button>
             </section>
             <section class="section-b">
@@ -37,7 +43,11 @@
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni fugiat similique illo nobis quibusdam
                     commodi aspernatur, tempora doloribus quod, consectetur deserunt, facilis natus optio. Iure
                     provident labore nihil in earum.</p>
-                    <p class="wbkv9-Amount-integerPart integerPart">2949</p>
+                <p class="wbkv9-Amount-integerPart integerPart">2949</p>
+                <div class="wbkv9-Entity-amountLabelContainer _1ZX7-M-_YU0sEXye5bWpWN">
+                    <div class="wbkv9-Entity-amountCurrencyLabel _1UbZw6VqExeLJtyHT87moJ">EUR</div>
+                    <div class="wbkv9-Entity-nightsLabel _3DE_M6rOCVjpNKJW7lxWXc">noche</div>
+                </div>
                 <button>Read More</button>
             </section>
             <section class="section-c">
@@ -45,27 +55,32 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi eos culpa laudantium consequatur ea!
                     Quibusdam, iure obcaecati. Adipisci deserunt, alias repellat eligendi odit labore! Fugit iste sit
                     laborum debitis eos?</p>
-                    <p class="wbkv9-Amount-integerPart integerPart">2939</p>
+                <p class="wbkv9-Amount-integerPart integerPart">2939</p>
+                <div class="wbkv9-Entity-amountLabelContainer _1ZX7-M-_YU0sEXye5bWpWN">
+                    <div class="wbkv9-Entity-amountCurrencyLabel _1UbZw6VqExeLJtyHT87moJ">EUR</div>
+                    <div class="wbkv9-Entity-nightsLabel _3DE_M6rOCVjpNKJW7lxWXc">noche</div>
+                </div>
                 <button>Read More</button>
             </section>
-            <form id="witform" method="GET">  
+            <form id="witform" method="GET">
                 <div class="inputWrap">
-                <label for="datein" id="dateinLabel">Entrada</label>
-                <input type="text" id="datein" name="datein"  class="hasDatepicker" ></div>
-                        <div class="inputWrap">
-                <label for="dateout" id="dateoutLabel">Salida</label>
-                <input type="text" id="dateout" name="dateout"  class="hasDatepicker" >   
-                </div>
-                        <div class="inputWrap">
-                <label for="adults" class="adultsLabel">Adultos</label>
-                <select id="adults" name="adults">
-                  <option value="1">1</option>
-                  <option value="2" selected="">2</option>
-                  <option value="3">3</option>
-                </select>
+                    <label for="datein" id="dateinLabel">Entrada</label>
+                    <input type="text" id="datein" name="datein" class="hasDatepicker">
                 </div>
                 <div class="inputWrap">
-                <input id="bookingBtn" type="button" value="Reservar">
+                    <label for="dateout" id="dateoutLabel">Salida</label>
+                    <input type="text" id="dateout" name="dateout" class="hasDatepicker">
+                </div>
+                <div class="inputWrap">
+                    <label for="adults" class="adultsLabel">Adultos</label>
+                    <select id="adults" name="adults">
+                        <option value="1">1</option>
+                        <option value="2" selected="">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+                <div class="inputWrap">
+                    <input id="bookingBtn" type="button" value="Reservar">
                 </div>
             </form>
         </div>
@@ -73,4 +88,5 @@
     <script src="../models/hotels.js"></script>
     <script src="../controllers/main.js"></script>
 </body>
+
 </html>

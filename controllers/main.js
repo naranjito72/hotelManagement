@@ -6,19 +6,18 @@ let arrDates = [];
 let numbersFront;
 const getLanguage = () => (navigator.languages || [])[0] || navigator.language || 'es';
 console.log(getLanguage());
-// test selectors
-let element = Array.from(document.querySelectorAll('.wbkv9-Amount-integerPart'));
-//class="wbkv9-Amount-integerPart integerPart"
-const showMe = element.map((e) => e = e.innerText).sort((a, b) => a - b);
-console.log((element));
-console.log((showMe));
+// get the data
+// date
+let checkInDate = document.querySelector('#datein');
+let checkOutDate = document.querySelector('#dateout');
+// amount
+let priceRoom = Array.from(document.querySelectorAll('.wbkv9-Amount-integerPart'));
+// currency
+let currencyHotel = (document.querySelector('.wbkv9-Entity-amountCurrencyLabel').innerHTML);
 /**********************************************************************************/
 // it triggers everything
 let allBegins = document.getElementById('bookingBtn');
 allBegins.addEventListener('click', getDates);
-// get the data
-let checkInDate = document.querySelector('#datein');
-let checkOutDate = document.querySelector('#dateout');
 // first the dates and convertion to yyyy-MM-dd
 function getDates() {
     console.log('dates works');
@@ -43,6 +42,7 @@ function getDates() {
     console.log(checkOutDate.value);
     // check if date comes in dd-MM-yyyy
     // check both i as the arrays will be always the same length
+    // to refac with map
     let i = 0;
     for (i; i < arrDates.length; i++) {
         if (numbersFront[i] == 2)
@@ -53,9 +53,17 @@ function getDates() {
     createData();
     return arrDates;
 }
+// show me the money
+const showPrice = priceRoom.map((e) => e = e.innerText).sort((a, b) => a - b);
+console.log((priceRoom));
+console.log((showPrice));
+// show me the currency
+/* const showCurrency = (div: HTMLElement) => div.getAttribute('value');
+console.log(showCurrency(currencyHotel)); */
+// create de Object
 function createData() {
     console.log('create works');
-    let newOne = new Hotel(arrDates[0], arrDates[1], 350, 'GBP', 4, 2, 1, getLanguage());
+    let newOne = new Hotel(arrDates[0], arrDates[1], showPrice[0], currencyHotel, 4, 2, 1, getLanguage());
     console.log(newOne);
 }
 /************************* aux functions ********************************/
