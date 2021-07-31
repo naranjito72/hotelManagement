@@ -41,7 +41,6 @@ let allBegins: any = document.getElementById('bookingBtn') as HTMLBodyElement;
 
 // add actions to the captures
 allBegins.addEventListener('click', getDates);
-//roomsChecked.addEventListener('click', getDates);
 
 // first the dates and convertion to yyyy-MM-dd
 function getDates() {
@@ -67,8 +66,8 @@ function getDates() {
     bolean = auxFunctions.checkSymbol(checkInDate.value);
 
     // check if date comes in dd-MM-yyyy
-    // check both i as the arrays will be always the same length
-    // to refac with map
+    // check both index as the arrays will be always the same length
+    // how to refac with map?
     let i: number = 0;
     for (i; i < arrDates.length; i++) {
         if (numbersFront[i] == 2) arrDates[i] = auxFunctions.cleanAndReverseDate(arrDates[i]);
@@ -93,7 +92,7 @@ function kindOfGuests(): void {
 // show me the money
 const showPrice = priceRoom.map((e: any) => e = e.innerText).sort((a: any, b: any) => a - b)
 
-// "Every time I see an adult on a bicycle, I no longer despair for the future of the human race" (H.G.Wells)
+// Take value from select html
 function getMePeopleFromSelect(people: string): number {
     let bookedPeople: number = 0;
     let getMePeople = auxFunctions.getMeValueSelect(people);
@@ -110,7 +109,6 @@ function howManyRoomsChecked(): number {
     return seenRooms;
 }
 
-// "Adults are always asking kids what they want to be when they grow up because they are looking for ideas" (Paula Poundstone)
 // create de Object
 function createDataObject() {
     newOne = new Hotel(arrDates[0], arrDates[1], showPrice[0], currencyHotel, seenRooms, myAdults, myKids, getLanguage());

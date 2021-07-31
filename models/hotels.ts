@@ -1,5 +1,5 @@
 "use strict"
-// "One ring to rule them all" (Lord of the Rings)
+
 class Hotel {
     // properties
     private checkIn: string;
