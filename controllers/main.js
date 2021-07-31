@@ -3,9 +3,10 @@
 let bolean = false;
 let numHelper = 0;
 let arrDates = [];
-let numbersFront;
-let myAdults;
-let myKids;
+let numbersFront = [];
+let myAdults = 0;
+let myKids = 0;
+let seenRooms = 0;
 const getLanguage = () => (navigator.languages || [])[0] || navigator.language || 'es';
 console.log(getLanguage());
 // get the data
@@ -20,10 +21,16 @@ let currencyHotel = (document.querySelector('.wbkv9-Entity-amountCurrencyLabel')
 let guestsAdults = document.getElementById('adults');
 // kids
 let guestsKids = document.getElementById('kids');
+// rooms checked buttons
+let roomsChecked = Array.from(document.querySelectorAll(".wbkv9-Entity-button"));
+roomsChecked.map((el, ind) => el.addEventListener('click', howManyRooms));
+console.log(roomsChecked);
 /**********************************************************************************/
 // it triggers everything
 let allBegins = document.getElementById('bookingBtn');
+// add actions to the captures
 allBegins.addEventListener('click', getDates);
+//roomsChecked.addEventListener('click', getDates);
 // first the dates and convertion to yyyy-MM-dd
 function getDates() {
     console.log('dates works');
@@ -56,13 +63,18 @@ function getDates() {
         if (checkSymbol(arrDates[i]) == true)
             arrDates[i] = cleanDate(arrDates[i]);
     }
+    // iniciate guests
+    kindOfGuests();
+    // create the object
+    createDataObject();
+    return arrDates;
+}
+// kind of gests
+function kindOfGuests() {
     // get me the adults
     myAdults = getMePeopleFromSelect(guestsAdults);
     // get me the kids
     myKids = getMePeopleFromSelect(guestsKids);
-    // create the object
-    createData();
-    return arrDates;
 }
 // show me the money
 const showPrice = priceRoom.map((e) => e = e.innerText).sort((a, b) => a - b);
@@ -77,12 +89,20 @@ function getMePeopleFromSelect(people) {
     console.log(getMePeople);
     return bookedPeople;
 }
+// How many rooms the user is watching
+function howManyRooms() {
+    console.log('How many rooms works');
+    seenRooms++;
+    console.log(seenRooms);
+    return seenRooms;
+}
 // "Adults are always asking kids what they want to be when they grow up because they are looking for ideas" (Paula Poundstone)
 // create de Object
-function createData() {
+function createDataObject() {
     console.log('create works');
-    let newOne = new Hotel(arrDates[0], arrDates[1], showPrice[0], currencyHotel, 4, myAdults, myKids, getLanguage());
+    let newOne = new Hotel(arrDates[0], arrDates[1], showPrice[0], currencyHotel, seenRooms, myAdults, myKids, getLanguage());
     console.log(newOne);
+    console.log(newOne.howManyGuests());
 }
 /************************* aux functions ********************************/
 // converting new date

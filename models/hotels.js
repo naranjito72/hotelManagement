@@ -79,8 +79,12 @@ class Hotel {
         return this.langVisitor;
     }
     // metohds
-    howmanyGuests() {
+    howManyGuests() {
         let sum = this.adultsComing + this.kidsComing;
         return sum;
+    }
+    howManyRoomsChecked(num) {
+        num = this.howManyRooms;
+        return this.howManyRooms;
     }
 }

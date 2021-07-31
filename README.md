@@ -33,3 +33,12 @@
   * Compare same index two arrays with the same length
     *  [one](https://stackoverflow.com/questions/49044317/compare-same-index-of-two-array-having-same-length/49044373)
     *  [two](https://stackoverflow.com/questions/34076624/combine-same-index-objects-of-two-arrays)
+
+  * Get value select
+    * [Ricado Metring](https://ricardometring.com/getting-the-value-of-a-select-in-javascript)
+    * [HTMLSelectElement.options](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/options)
+    * [HTMLSelectElement.selectedIndex](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/selectedIndex)
+    * Examples
+      * [One](https://www.it-swarm-es.com/es/javascript/obtenga-el-valor-seleccionado-en-la-lista-desplegable-usando-javascript/967312389/)
+      * [Two](https://www.codegrepper.com/code-examples/javascript/get+value+of+selected+index+javascript)
+    

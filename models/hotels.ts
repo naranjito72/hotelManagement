@@ -82,9 +82,14 @@ class Hotel {
         return this.langVisitor;
     }
     // metohds
-    public howmanyGuests(): number {
+    public howManyGuests(): number {
         let sum: number = this.adultsComing + this.kidsComing;
         return sum;
+    }
+
+    public howManyRoomsChecked(num: number): number {
+        num = this.howManyRooms
+        return this.howManyRooms;
     }
      // public langVisitor = (navigator.languages && navigator.languages.length) ? navigator.languages[0] : navigator.language || 'es'; 
 
