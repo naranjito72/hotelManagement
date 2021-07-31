@@ -1,9 +1,5 @@
+"use strict"
 // "One ring to rule them all" (Lord of the Rings)
-
-/* interface Client {
-    myAdults: number;
-    myKids: number;
-} */
 class Hotel {
     // properties
     private checkIn: string;
@@ -91,6 +87,6 @@ class Hotel {
         this.myHowManyRooms = num;
         return this.myHowManyRooms;
     }
-     // public langVisitor = (navigator.languages && navigator.languages.length) ? navigator.languages[0] : navigator.language || 'es'; 
-
+    
 }
+ 

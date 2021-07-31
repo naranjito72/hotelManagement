@@ -54,20 +54,20 @@ function getDates() {
     let d: Date = new Date();
 
     // empty fields | null
-    (checkInDate.value == "") ? checkInDate.value = myFormatYear(d) : checkInDate.value;
+    (checkInDate.value == "") ? checkInDate.value = auxFunctions.myFormatYear(d) : checkInDate.value;
     (checkOutDate.value == "") ? checkOutDate.value = checkInDate.value : checkOutDate.value;
 
     // push them
-    pushToArr(checkInDate.value);
-    pushToArr(checkOutDate.value);
+    auxFunctions.pushToArr(checkInDate.value);
+    auxFunctions.pushToArr(checkOutDate.value);
     console.log(arrDates);
 
     // check how many numbers infront
-    numbersFront = checkLengthFront(arrDates);
+    numbersFront = auxFunctions.checkLengthFront(arrDates);
     console.log(numbersFront)
 
     // check regex
-    bolean = checkSymbol(checkInDate.value);
+    bolean = auxFunctions.checkSymbol(checkInDate.value);
     console.log(checkInDate.value);
     console.log(checkOutDate.value);
     // check if date comes in dd-MM-yyyy
@@ -75,8 +75,8 @@ function getDates() {
     // to refac with map
     let i: number = 0;
     for (i; i < arrDates.length; i++) {
-        if (numbersFront[i] == 2) arrDates[i] = cleanAndReverseDate(arrDates[i]);
-        if (checkSymbol(arrDates[i]) == true) arrDates[i] = cleanDate(arrDates[i]);
+        if (numbersFront[i] == 2) arrDates[i] = auxFunctions.cleanAndReverseDate(arrDates[i]);
+        if (auxFunctions.checkSymbol(arrDates[i]) == true) arrDates[i] = auxFunctions.cleanDate(arrDates[i]);
     }
     // iniciate guests
     kindOfGuests();
@@ -101,7 +101,7 @@ console.log((showPrice));
 // "Every time I see an adult on a bicycle, I no longer despair for the future of the human race" (H.G.Wells)
 function getMePeopleFromSelect(people: string): number {
     let bookedPeople: number = 0;
-    let getMePeople = getMeValueSelect(people);
+    let getMePeople = auxFunctions.getMeValueSelect(people);
     // making sure is a number
     bookedPeople = parseInt(getMePeople.value);
     console.log(getMePeople);
@@ -127,39 +127,68 @@ function createDataObject() {
     console.log(newOne.howManyGuests());
 }
 /************************* aux functions ********************************/
-// converting new date
-const myFormatYear = (str: any) => str.toISOString().slice(0, 10);
+let auxFunctions: any = {
+    // converting new date
+    myFormatYear: (str: any) => str.toISOString().slice(0, 10),
 
-// pusher
-const pushToArr = (num: number) => arrDates.push(num);
+    // pusher
+    pushToArr: (num: number) => arrDates.push(num),
 
-// iterate over them all
-const checkLengthFront = (arr: string[]) => arr.map((e: any) => e = howManyIntegersInFront(e));
+    // iterate over them all
+    checkLengthFront: (arr: string[]) => arr.map((e: any) => e = auxFunctions.howManyIntegersInFront(e)),
 
-// check how many integers infront
-const howManyIntegersInFront = (str: string) => str.replace(/[^\d].*/, '').length;
+    // check how many integers infront
+    howManyIntegersInFront: (str: string) => str.replace(/[^\d].*/, '').length,
 
-// checking special symbol
-// passing throug the regex function i don't need anymore to check for special symbol
-function checkSymbol(str: string): boolean {
+    // checking special symbol
+    // passing throug the regex function i don't need anymore to check for special symbol
+   checkSymbol: function(str: string): boolean {
     let symbolToCheck: RegExp = /[/]/
     let myHelp: boolean;
     (symbolToCheck.test(str)) ? myHelp = true : myHelp = false;
     console.log(myHelp);
     return myHelp;
+},
+
+    //reversing dates and change symbol
+    cleanAndReverseDate: (str: string) => str.split(/[/-]/).reverse().join('-'),
+
+    // only change symbol
+    cleanDate: (str: string) => str.split(/[/-]/).join('-'),
+
+    // value from select
+    getMeValueSelect: (str: any) => (str.options[str.selectedIndex])
 }
+// converting new date
+// const myFormatYear = (str: any) => str.toISOString().slice(0, 10);
+
+// pusher
+// const pushToArr = (num: number) => arrDates.push(num);
+
+// iterate over them all
+//const checkLengthFront = (arr: string[]) => arr.map((e: any) => e = howManyIntegersInFront(e));
+
+// check how many integers infront
+//const howManyIntegersInFront = (str: string) => str.replace(/[^\d].*/, '').length;
+
+// checking special symbol
+// passing throug the regex function i don't need anymore to check for special symbol
+/* function checkSymbol(str: string): boolean {
+    let symbolToCheck: RegExp = /[/]/
+    let myHelp: boolean;
+    (symbolToCheck.test(str)) ? myHelp = true : myHelp = false;
+    console.log(myHelp);
+    return myHelp;
+} */
 
 //reversing dates and change symbol
-const cleanAndReverseDate = (str: string) => str.split(/[/-]/).reverse().join('-');
-console.log(cleanAndReverseDate('20/09/2021'));
-console.log(cleanAndReverseDate('20-09-2021'));
-console.log(cleanAndReverseDate('20-09/2021'));
+//const cleanAndReverseDate = (str: string) => str.split(/[/-]/).reverse().join('-');
 
 // only change symbol
-const cleanDate = (str: string) => str.split(/[/-]/).join('-');
+//const cleanDate = (str: string) => str.split(/[/-]/).join('-');
 
 // value from select
-const getMeValueSelect = (str: any) => (str.options[str.selectedIndex]);
+//const getMeValueSelect = (str: any) => (str.options[str.selectedIndex]);
 
 // reversing format
 // using regex I avoid second function

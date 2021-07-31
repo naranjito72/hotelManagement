@@ -41,4 +41,6 @@
     * Examples
       * [One](https://www.it-swarm-es.com/es/javascript/obtenga-el-valor-seleccionado-en-la-lista-desplegable-usando-javascript/967312389/)
       * [Two](https://www.codegrepper.com/code-examples/javascript/get+value+of+selected+index+javascript)
+
+    * One click event for multiple buttons [StackOverFlow](https://stackoverflow.com/questions/19545876/onclick-event-for-multiple-buttons)
     

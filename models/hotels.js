@@ -1,8 +1,5 @@
+"use strict";
 // "One ring to rule them all" (Lord of the Rings)
-/* interface Client {
-    myAdults: number;
-    myKids: number;
-} */
 class Hotel {
     // constructor
     constructor(checkIn, checkOut, minimumPrice, currencyVisitor, howManyRooms, adultsComing, kidsComing, langVisitor) {

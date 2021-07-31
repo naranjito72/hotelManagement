@@ -42,17 +42,17 @@ function getDates() {
     // create new date
     let d = new Date();
     // empty fields | null
-    (checkInDate.value == "") ? checkInDate.value = myFormatYear(d) : checkInDate.value;
+    (checkInDate.value == "") ? checkInDate.value = auxFunctions.myFormatYear(d) : checkInDate.value;
     (checkOutDate.value == "") ? checkOutDate.value = checkInDate.value : checkOutDate.value;
     // push them
-    pushToArr(checkInDate.value);
-    pushToArr(checkOutDate.value);
+    auxFunctions.pushToArr(checkInDate.value);
+    auxFunctions.pushToArr(checkOutDate.value);
     console.log(arrDates);
     // check how many numbers infront
-    numbersFront = checkLengthFront(arrDates);
+    numbersFront = auxFunctions.checkLengthFront(arrDates);
     console.log(numbersFront);
     // check regex
-    bolean = checkSymbol(checkInDate.value);
+    bolean = auxFunctions.checkSymbol(checkInDate.value);
     console.log(checkInDate.value);
     console.log(checkOutDate.value);
     // check if date comes in dd-MM-yyyy
@@ -61,9 +61,9 @@ function getDates() {
     let i = 0;
     for (i; i < arrDates.length; i++) {
         if (numbersFront[i] == 2)
-            arrDates[i] = cleanAndReverseDate(arrDates[i]);
-        if (checkSymbol(arrDates[i]) == true)
-            arrDates[i] = cleanDate(arrDates[i]);
+            arrDates[i] = auxFunctions.cleanAndReverseDate(arrDates[i]);
+        if (auxFunctions.checkSymbol(arrDates[i]) == true)
+            arrDates[i] = auxFunctions.cleanDate(arrDates[i]);
     }
     // iniciate guests
     kindOfGuests();
@@ -85,7 +85,7 @@ console.log((showPrice));
 // "Every time I see an adult on a bicycle, I no longer despair for the future of the human race" (H.G.Wells)
 function getMePeopleFromSelect(people) {
     let bookedPeople = 0;
-    let getMePeople = getMeValueSelect(people);
+    let getMePeople = auxFunctions.getMeValueSelect(people);
     // making sure is a number
     bookedPeople = parseInt(getMePeople.value);
     console.log(getMePeople);
@@ -109,29 +109,28 @@ function createDataObject() {
     console.log(newOne.howManyGuests());
 }
 /************************* aux functions ********************************/
-// converting new date
-const myFormatYear = (str) => str.toISOString().slice(0, 10);
-// pusher
-const pushToArr = (num) => arrDates.push(num);
-// iterate over them all
-const checkLengthFront = (arr) => arr.map((e) => e = howManyIntegersInFront(e));
-// check how many integers infront
-const howManyIntegersInFront = (str) => str.replace(/[^\d].*/, '').length;
-// checking special symbol
-// passing throug the regex function i don't need anymore to check for special symbol
-function checkSymbol(str) {
-    let symbolToCheck = /[/]/;
-    let myHelp;
-    (symbolToCheck.test(str)) ? myHelp = true : myHelp = false;
-    console.log(myHelp);
-    return myHelp;
-}
-//reversing dates and change symbol
-const cleanAndReverseDate = (str) => str.split(/[/-]/).reverse().join('-');
-console.log(cleanAndReverseDate('20/09/2021'));
-console.log(cleanAndReverseDate('20-09-2021'));
-console.log(cleanAndReverseDate('20-09/2021'));
-// only change symbol
-const cleanDate = (str) => str.split(/[/-]/).join('-');
-// value from select
-const getMeValueSelect = (str) => (str.options[str.selectedIndex]);
+let auxFunctions = {
+    // converting new date
+    myFormatYear: (str) => str.toISOString().slice(0, 10),
+    // pusher
+    pushToArr: (num) => arrDates.push(num),
+    // iterate over them all
+    checkLengthFront: (arr) => arr.map((e) => e = auxFunctions.howManyIntegersInFront(e)),
+    // check how many integers infront
+    howManyIntegersInFront: (str) => str.replace(/[^\d].*/, '').length,
+    // checking special symbol
+    // passing throug the regex function i don't need anymore to check for special symbol
+    checkSymbol: function (str) {
+        let symbolToCheck = /[/]/;
+        let myHelp;
+        (symbolToCheck.test(str)) ? myHelp = true : myHelp = false;
+        console.log(myHelp);
+        return myHelp;
+    },
+    //reversing dates and change symbol
+    cleanAndReverseDate: (str) => str.split(/[/-]/).reverse().join('-'),
+    // only change symbol
+    cleanDate: (str) => str.split(/[/-]/).join('-'),
+    // value from select
+    getMeValueSelect: (str) => (str.options[str.selectedIndex])
+};
