@@ -6,20 +6,20 @@ class Hotel {
     private checkOut: string;
     private minimumPrice: number;
     private currencyVisitor: any;
-    private howManyRooms: number;
+    private howManyRoomsVisited: number;
     private adultsComing: number;
     private kidsComing: number;
     private langVisitor: string;
 
     // constructor
     constructor (checkIn: string, checkOut: string, minimumPrice: number,currencyVisitor: any,
-                 howManyRooms: number, adultsComing: number, kidsComing: number, langVisitor: string) {
+                 howManyRoomsVisited: number, adultsComing: number, kidsComing: number, langVisitor: string) {
 
                     this.checkIn         = checkIn;
                     this.checkOut        = checkOut;
                     this.minimumPrice    = minimumPrice;
                     this.currencyVisitor = currencyVisitor;
-                    this.howManyRooms    = howManyRooms;
+                    this.howManyRoomsVisited = howManyRoomsVisited;
                     this.adultsComing    = adultsComing;
                     this.kidsComing      = kidsComing;
                     this.langVisitor     = langVisitor;
@@ -38,8 +38,8 @@ class Hotel {
     public set myCurrencyVisitor(currencyVisitor: string){
         this.currencyVisitor = currencyVisitor;
     }
-    public set myHowManyRooms(howManyRooms: number) {
-        this.howManyRooms = howManyRooms;
+    public set myHowManyRoomsVisited(howManyRoomsVisited: number) {
+        this.howManyRoomsVisited = howManyRoomsVisited;
     }
     public set myAdultsComing(adultsComing: number) {
         this.adultsComing = adultsComing;
@@ -64,8 +64,8 @@ class Hotel {
     public get myCurrencyVisitor() {
         return this.currencyVisitor;
     }
-    public get myHowManyRooms() {
-        return this.howManyRooms;
+    public get myHowManyRoomsVisited() {
+        return this.howManyRoomsVisited;
     }
     public get myAdultsComing() {
         return this.adultsComing;
@@ -84,8 +84,16 @@ class Hotel {
     }
 
     public howManyRoomsChecked(num: number): number {
-        this.myHowManyRooms = num;
-        return this.myHowManyRooms;
+        this.myHowManyRoomsVisited = num;
+        return this.myHowManyRoomsVisited;
+    }
+
+    public toString(): string {
+        let infoObject: string = `User's info. Check-in: ${this.myCheckIn}. Check-out: ${this.myCheckOut}.\n
+                                  Minimum price shown in screen: ${this.myMinimumPrice}. Currency shown in screen at first: ${this.myCurrencyVisitor}\n 
+                                  Rooms visited by user: ${this.myHowManyRoomsVisited}. Language Browser: ${this.myLangVisitors}\n
+                                  Adults value: ${this.myAdultsComing}. Kids value: ${this.myKidsComing}. Total number of guests: ${this.howManyGuests}`;
+        return infoObject;
     }
     
 }

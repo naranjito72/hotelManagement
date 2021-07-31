@@ -7,6 +7,7 @@ let numbersFront = [];
 let myAdults = 0;
 let myKids = 0;
 let seenRooms = 0;
+let totalGuests = 0;
 // object
 let newOne;
 const getLanguage = () => (navigator.languages || [])[0] || navigator.language || 'es';
@@ -25,8 +26,7 @@ let guestsAdults = document.getElementById('adults');
 let guestsKids = document.getElementById('kids');
 // rooms checked buttons
 let roomsChecked = Array.from(document.querySelectorAll(".wbkv9-Entity-button"));
-roomsChecked.map((el, ind) => el.addEventListener('click', howManyRooms));
-console.log(roomsChecked);
+roomsChecked.map((el, ind) => el.addEventListener('click', howManyRoomsChecked));
 /**********************************************************************************/
 // it triggers everything
 let allBegins = document.getElementById('bookingBtn');
@@ -35,7 +35,6 @@ allBegins.addEventListener('click', getDates);
 //roomsChecked.addEventListener('click', getDates);
 // first the dates and convertion to yyyy-MM-dd
 function getDates() {
-    console.log('dates works');
     // clean arr
     arrDates = [];
     numbersFront = [];
@@ -47,14 +46,10 @@ function getDates() {
     // push them
     auxFunctions.pushToArr(checkInDate.value);
     auxFunctions.pushToArr(checkOutDate.value);
-    console.log(arrDates);
     // check how many numbers infront
     numbersFront = auxFunctions.checkLengthFront(arrDates);
-    console.log(numbersFront);
     // check regex
     bolean = auxFunctions.checkSymbol(checkInDate.value);
-    console.log(checkInDate.value);
-    console.log(checkOutDate.value);
     // check if date comes in dd-MM-yyyy
     // check both i as the arrays will be always the same length
     // to refac with map
@@ -80,33 +75,27 @@ function kindOfGuests() {
 }
 // show me the money
 const showPrice = priceRoom.map((e) => e = e.innerText).sort((a, b) => a - b);
-console.log((priceRoom));
-console.log((showPrice));
 // "Every time I see an adult on a bicycle, I no longer despair for the future of the human race" (H.G.Wells)
 function getMePeopleFromSelect(people) {
     let bookedPeople = 0;
     let getMePeople = auxFunctions.getMeValueSelect(people);
     // making sure is a number
     bookedPeople = parseInt(getMePeople.value);
-    console.log(getMePeople);
     return bookedPeople;
 }
 // How many rooms the user is watching
-function howManyRooms() {
-    console.log('How many rooms works');
+function howManyRoomsChecked() {
     seenRooms++;
     newOne.howManyRoomsChecked(seenRooms);
-    console.log(seenRooms);
-    console.log(newOne);
+    console.log(newOne.toString());
     return seenRooms;
 }
 // "Adults are always asking kids what they want to be when they grow up because they are looking for ideas" (Paula Poundstone)
 // create de Object
 function createDataObject() {
-    console.log('create works');
     newOne = new Hotel(arrDates[0], arrDates[1], showPrice[0], currencyHotel, seenRooms, myAdults, myKids, getLanguage());
-    console.log(newOne);
-    console.log(newOne.howManyGuests());
+    totalGuests = newOne.howManyGuests();
+    console.log(newOne.toString());
 }
 /************************* aux functions ********************************/
 let auxFunctions = {
@@ -124,7 +113,6 @@ let auxFunctions = {
         let symbolToCheck = /[/]/;
         let myHelp;
         (symbolToCheck.test(str)) ? myHelp = true : myHelp = false;
-        console.log(myHelp);
         return myHelp;
     },
     //reversing dates and change symbol

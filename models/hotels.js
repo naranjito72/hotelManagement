@@ -2,12 +2,12 @@
 // "One ring to rule them all" (Lord of the Rings)
 class Hotel {
     // constructor
-    constructor(checkIn, checkOut, minimumPrice, currencyVisitor, howManyRooms, adultsComing, kidsComing, langVisitor) {
+    constructor(checkIn, checkOut, minimumPrice, currencyVisitor, howManyRoomsVisited, adultsComing, kidsComing, langVisitor) {
         this.checkIn = checkIn;
         this.checkOut = checkOut;
         this.minimumPrice = minimumPrice;
         this.currencyVisitor = currencyVisitor;
-        this.howManyRooms = howManyRooms;
+        this.howManyRoomsVisited = howManyRoomsVisited;
         this.adultsComing = adultsComing;
         this.kidsComing = kidsComing;
         this.langVisitor = langVisitor;
@@ -25,8 +25,8 @@ class Hotel {
     set myCurrencyVisitor(currencyVisitor) {
         this.currencyVisitor = currencyVisitor;
     }
-    set myHowManyRooms(howManyRooms) {
-        this.howManyRooms = howManyRooms;
+    set myHowManyRoomsVisited(howManyRoomsVisited) {
+        this.howManyRoomsVisited = howManyRoomsVisited;
     }
     set myAdultsComing(adultsComing) {
         this.adultsComing = adultsComing;
@@ -50,8 +50,8 @@ class Hotel {
     get myCurrencyVisitor() {
         return this.currencyVisitor;
     }
-    get myHowManyRooms() {
-        return this.howManyRooms;
+    get myHowManyRoomsVisited() {
+        return this.howManyRoomsVisited;
     }
     get myAdultsComing() {
         return this.adultsComing;
@@ -68,7 +68,14 @@ class Hotel {
         return sum;
     }
     howManyRoomsChecked(num) {
-        this.myHowManyRooms = num;
-        return this.myHowManyRooms;
+        this.myHowManyRoomsVisited = num;
+        return this.myHowManyRoomsVisited;
+    }
+    toString() {
+        let infoObject = `User's info. Check-in: ${this.myCheckIn}. Check-out: ${this.myCheckOut}.\n
+                                  Minimum price shown in screen: ${this.myMinimumPrice}. Currency shown in screen at first: ${this.myCurrencyVisitor}\n 
+                                  Rooms visited by user: ${this.myHowManyRoomsVisited}. Language Browser: ${this.myLangVisitors}\n
+                                  Adults value: ${this.myAdultsComing}. Kids value: ${this.myKidsComing}. Total number of guests: ${this.howManyGuests}`;
+        return infoObject;
     }
 }
