@@ -88,8 +88,8 @@ class Hotel {
     }
 
     public howManyRoomsChecked(num: number): number {
-        num = this.howManyRooms
-        return this.howManyRooms;
+        this.myHowManyRooms = num;
+        return this.myHowManyRooms;
     }
      // public langVisitor = (navigator.languages && navigator.languages.length) ? navigator.languages[0] : navigator.language || 'es'; 
 

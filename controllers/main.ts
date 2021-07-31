@@ -7,6 +7,8 @@ let numbersFront: any[] = [];
 let myAdults:     number = 0;
 let myKids:       number = 0;
 let seenRooms:    number = 0;
+// object
+let newOne: Hotel;
 
 const getLanguage = () => (navigator.languages || [])[0] || navigator.language || 'es';
 console.log(getLanguage());
@@ -110,7 +112,9 @@ function getMePeopleFromSelect(people: string): number {
 function howManyRooms(): number {
     console.log('How many rooms works');
     seenRooms++;
-    console.log(seenRooms)
+    newOne.howManyRoomsChecked(seenRooms);
+    console.log(seenRooms);
+    console.log(newOne);
     return seenRooms;
 }
 
@@ -118,7 +122,7 @@ function howManyRooms(): number {
 // create de Object
 function createDataObject() {
     console.log('create works');
-    let newOne = new Hotel(arrDates[0], arrDates[1], showPrice[0], currencyHotel, seenRooms, myAdults, myKids, getLanguage());
+    newOne = new Hotel(arrDates[0], arrDates[1], showPrice[0], currencyHotel, seenRooms, myAdults, myKids, getLanguage());
     console.log(newOne);
     console.log(newOne.howManyGuests());
 }

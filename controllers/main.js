@@ -7,6 +7,8 @@ let numbersFront = [];
 let myAdults = 0;
 let myKids = 0;
 let seenRooms = 0;
+// object
+let newOne;
 const getLanguage = () => (navigator.languages || [])[0] || navigator.language || 'es';
 console.log(getLanguage());
 // get the data
@@ -93,14 +95,16 @@ function getMePeopleFromSelect(people) {
 function howManyRooms() {
     console.log('How many rooms works');
     seenRooms++;
+    newOne.howManyRoomsChecked(seenRooms);
     console.log(seenRooms);
+    console.log(newOne);
     return seenRooms;
 }
 // "Adults are always asking kids what they want to be when they grow up because they are looking for ideas" (Paula Poundstone)
 // create de Object
 function createDataObject() {
     console.log('create works');
-    let newOne = new Hotel(arrDates[0], arrDates[1], showPrice[0], currencyHotel, seenRooms, myAdults, myKids, getLanguage());
+    newOne = new Hotel(arrDates[0], arrDates[1], showPrice[0], currencyHotel, seenRooms, myAdults, myKids, getLanguage());
     console.log(newOne);
     console.log(newOne.howManyGuests());
 }
