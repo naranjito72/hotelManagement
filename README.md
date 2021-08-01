@@ -43,4 +43,8 @@
       * [Two](https://www.codegrepper.com/code-examples/javascript/get+value+of+selected+index+javascript)
 
     * One click event for multiple buttons [StackOverFlow](https://stackoverflow.com/questions/19545876/onclick-event-for-multiple-buttons)
+
+  * Spread [Operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+
+  * Two functions in [addEventListener](https://stackoverflow.com/questions/50742349/multiple-functions-on-add-event-listener)
     

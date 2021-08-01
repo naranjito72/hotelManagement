@@ -1,4 +1,5 @@
 "use strict"
+
 const MAIN_FUNCTIONSTWO: any = {
 
     // properties
@@ -55,7 +56,7 @@ const MAIN_FUNCTIONSTWO: any = {
         MAIN_FUNCTIONSTWO.numbersFrontTwo = AUX_FUNCTIONSTWO.checkLengthFront(MAIN_FUNCTIONSTWO.arrDatesTwo);
 
         // check regex
-        bolean = AUX_FUNCTIONSTWO.checkSymbol(MAIN_FUNCTIONSTWO.checkInDateTwo.value);
+        MAIN_FUNCTIONSTWO.myBoolean = AUX_FUNCTIONSTWO.checkSymbol(MAIN_FUNCTIONSTWO.checkInDateTwo.value);
 
         // check if date comes in dd-MM-yyyy
         // check both index as the arrays will be always the same length
@@ -99,6 +100,7 @@ const MAIN_FUNCTIONSTWO: any = {
     createDataTwo: function(): void {
         MAIN_FUNCTIONSTWO.newOneTwo = new Hotel(MAIN_FUNCTIONSTWO.arrDatesTwo[0], MAIN_FUNCTIONSTWO.arrDatesTwo[1], MAIN_FUNCTIONSTWO.showPriceTwo[0], MAIN_FUNCTIONSTWO.currencyHotelTwo, MAIN_FUNCTIONSTWO.seenRoomsTwo,
                                       MAIN_FUNCTIONSTWO.myAdultsTwo, MAIN_FUNCTIONSTWO.myKidsTwo, MAIN_FUNCTIONSTWO.getLanguageTwo());
+        // add all guests
         MAIN_FUNCTIONSTWO.totalGuestsTwo = MAIN_FUNCTIONSTWO.newOneTwo.howManyGuests();
         console.log(MAIN_FUNCTIONSTWO.newOneTwo.toString());
     }
@@ -139,4 +141,5 @@ const AUX_FUNCTIONSTWO: any = {
 // all begins here
 let allBeginsTwo: any = (document.getElementById('bookingBtn') as HTMLBodyElement).addEventListener('click', MAIN_FUNCTIONSTWO.getDatesTwo);
 // rooms checked rooms
-let roomsCheckedTwo: any = [...document.querySelectorAll(".wbkv9-Entity-button") as any].map((el: any, ind: number) => el.addEventListener('click', MAIN_FUNCTIONSTWO.numberOfRoomsChecked));
+let roomsCheckedTwo: any = [...document.querySelectorAll(".wbkv9-Entity-button") as any]
+                           .map((el: any, ind: number) => el.addEventListener('click', MAIN_FUNCTIONSTWO.numberOfRoomsChecked));

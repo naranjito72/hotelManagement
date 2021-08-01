@@ -40,7 +40,7 @@ const MAIN_FUNCTIONSTWO = {
         // check how many numbers infront
         MAIN_FUNCTIONSTWO.numbersFrontTwo = AUX_FUNCTIONSTWO.checkLengthFront(MAIN_FUNCTIONSTWO.arrDatesTwo);
         // check regex
-        bolean = AUX_FUNCTIONSTWO.checkSymbol(MAIN_FUNCTIONSTWO.checkInDateTwo.value);
+        MAIN_FUNCTIONSTWO.myBoolean = AUX_FUNCTIONSTWO.checkSymbol(MAIN_FUNCTIONSTWO.checkInDateTwo.value);
         // check if date comes in dd-MM-yyyy
         // check both index as the arrays will be always the same length
         // how to refac with map?
@@ -82,6 +82,7 @@ const MAIN_FUNCTIONSTWO = {
     // create Object
     createDataTwo: function () {
         MAIN_FUNCTIONSTWO.newOneTwo = new Hotel(MAIN_FUNCTIONSTWO.arrDatesTwo[0], MAIN_FUNCTIONSTWO.arrDatesTwo[1], MAIN_FUNCTIONSTWO.showPriceTwo[0], MAIN_FUNCTIONSTWO.currencyHotelTwo, MAIN_FUNCTIONSTWO.seenRoomsTwo, MAIN_FUNCTIONSTWO.myAdultsTwo, MAIN_FUNCTIONSTWO.myKidsTwo, MAIN_FUNCTIONSTWO.getLanguageTwo());
+        // add all guests
         MAIN_FUNCTIONSTWO.totalGuestsTwo = MAIN_FUNCTIONSTWO.newOneTwo.howManyGuests();
         console.log(MAIN_FUNCTIONSTWO.newOneTwo.toString());
     }
@@ -113,4 +114,5 @@ const AUX_FUNCTIONSTWO = {
 // all begins here
 let allBeginsTwo = document.getElementById('bookingBtn').addEventListener('click', MAIN_FUNCTIONSTWO.getDatesTwo);
 // rooms checked rooms
-let roomsCheckedTwo = [...document.querySelectorAll(".wbkv9-Entity-button")].map((el, ind) => el.addEventListener('click', MAIN_FUNCTIONSTWO.numberOfRoomsChecked));
+let roomsCheckedTwo = [...document.querySelectorAll(".wbkv9-Entity-button")]
+    .map((el, ind) => el.addEventListener('click', MAIN_FUNCTIONSTWO.numberOfRoomsChecked));

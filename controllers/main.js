@@ -18,6 +18,7 @@ let checkInDate = document.querySelector('#datein');
 let checkOutDate = document.querySelector('#dateout');
 // amount
 let priceRoom = [...document.querySelectorAll('.wbkv9-Amount-integerPart')];
+console.log(priceRoom);
 // currency
 let currencyHotel = (document.querySelector('.wbkv9-Entity-amountCurrencyLabel').innerHTML);
 // adults
@@ -25,8 +26,10 @@ let guestsAdults = document.getElementById('adults');
 // kids
 let guestsKids = document.getElementById('kids');
 // rooms checked buttons
-let roomsChecked = [...document.querySelectorAll(".wbkv9-Entity-button")];
-roomsChecked.map((el, ind) => el.addEventListener('click', howManyRoomsChecked));
+let roomsChecked = [...document.querySelectorAll(".wbkv9-Entity-button")]
+    .map((el, ind) => el.addEventListener('click', () => { howManyRoomsChecked(), fullInfoCheapestRoom(); }));
+// get all selectors rooms shown
+let allRoomsShown = [...document.querySelectorAll('.wbkv9-Entity-infoContainer')];
 /**********************************************************************************/
 // it triggers everything
 let allBegins = document.getElementById('bookingBtn');
@@ -74,6 +77,11 @@ function kindOfGuests() {
 }
 // show me the money
 const showPrice = priceRoom.map((e) => e = e.innerText).sort((a, b) => a - b);
+// show full info cheapest one bonus
+function fullInfoCheapestRoom() {
+    console.log(allRoomsShown.map((e) => e.innerText)[0]);
+    return allRoomsShown.map((e) => e.innerText)[0];
+}
 // Take value from select html
 function getMePeopleFromSelect(people) {
     let bookedPeople = 0;

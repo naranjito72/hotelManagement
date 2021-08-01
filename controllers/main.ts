@@ -1,4 +1,5 @@
 'use strict';
+
 // general
 let bolean: boolean = false;
 let numHelper: number = 0;
@@ -20,7 +21,8 @@ let checkInDate: any = (document.querySelector('#datein') as HTMLInputElement);
 let checkOutDate: any = (document.querySelector('#dateout') as HTMLInputElement);
 
 // amount
-let priceRoom: any = [...(document.querySelectorAll('.wbkv9-Amount-integerPart') as any)];
+let priceRoom: any = [...(document.querySelectorAll('.wbkv9-Amount-integerPart') as HTMLCollectionBase)];
+console.log(priceRoom);
 
 // currency
 let currencyHotel: any = (document.querySelector('.wbkv9-Entity-amountCurrencyLabel').innerHTML) as unknown;
@@ -32,8 +34,12 @@ let guestsAdults: any = (document.getElementById('adults') as HTMLElement);
 let guestsKids: any = (document.getElementById('kids') as HTMLElement);
 
 // rooms checked buttons
-let roomsChecked: any = [...(document.querySelectorAll(".wbkv9-Entity-button") as any)];
-roomsChecked.map((el: any, ind: number) => el.addEventListener('click', howManyRoomsChecked));
+let roomsChecked: any = [...(document.querySelectorAll(".wbkv9-Entity-button") as HTMLCollectionBase)]
+                        .map((el: any, ind: number) => el.addEventListener('click', () => {howManyRoomsChecked(), fullInfoCheapestRoom()}));
+
+// get all selectors rooms shown
+let allRoomsShown: any = [...(document.querySelectorAll('.wbkv9-Entity-infoContainer') as HTMLCollectionBase)];
+
 
 /**********************************************************************************/
 // it triggers everything
@@ -92,6 +98,13 @@ function kindOfGuests(): void {
 // show me the money
 const showPrice = priceRoom.map((e: any) => e = e.innerText).sort((a: any, b: any) => a - b);
 
+// show full info cheapest one bonus
+function fullInfoCheapestRoom(): string {
+    console.log(allRoomsShown.map((e: any) => e.innerText)[0]);
+    return allRoomsShown.map((e: any) => e.innerText)[0];
+}
+
+
 // Take value from select html
 function getMePeopleFromSelect(people: string): number {
     let bookedPeople: number = 0;
@@ -149,5 +162,6 @@ const AUX_FUNCTIONS: any = {
     getMeValueSelect: (str: any) => (str.options[str.selectedIndex])
 }
 
+/****************************** Extras info all *****************************************/
 
 
