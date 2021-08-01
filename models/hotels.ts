@@ -83,7 +83,7 @@ class Hotel {
         return sum;
     }
 
-    public howManyRoomsChecked(num: number): number {
+    public numberRoomsChecked(num: number): number {
         this.myHowManyRoomsVisited = num;
         return this.myHowManyRoomsVisited;
     }
@@ -92,9 +92,21 @@ class Hotel {
         let infoObject: string = `User's info. Check-in: ${this.myCheckIn}. Check-out: ${this.myCheckOut}.\n
                                   Minimum price shown in screen: ${this.myMinimumPrice}. Currency shown in screen at first: ${this.myCurrencyVisitor}\n 
                                   Rooms visited by user: ${this.myHowManyRoomsVisited}. Language Browser: ${this.myLangVisitors}\n
-                                  Adults value: ${this.myAdultsComing}. Kids value: ${this.myKidsComing}. Total number of guests: ${this.howManyGuests}`;
+                                  Adults value: ${this.myAdultsComing}. Kids value: ${this.myKidsComing}. Total number of guests: ${this.howManyGuests()}`;
         return infoObject;
     }
     
 }
- 
+ /*Your task is to craft a JavaScript function that detects and returns the most relevant data of the availability page. When the function is executed in that page, it should return an object with the following information: 
+● The check-in date in yyyy-mm-dd format 
+● The check-out date in yyyy-mm-dd format 
+● The minimum price (expressed per night) offered by the hotel 
+● The currency of that price (three characters ISO code) 
+● The number of rooms the user searched for 
+● The number of guests the user searched for (split adults from children) ● The total amount of guests 
+● The language used (two letters code) 
+● Optionally you may add 
+○ Extra data for that minimum price (for instance if it is a refundable rate, includes breakfast, etc). 
+○ A complete list of rates shown by the page (with their details, as capacity, etc). 
+You are free to choose property names for all that information, just make it as comprehensible as you can.
+ */

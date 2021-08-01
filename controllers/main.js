@@ -40,24 +40,24 @@ function getDates() {
     // create new date
     let d = new Date();
     // empty fields | null
-    (checkInDate.value == "") ? checkInDate.value = auxFunctions.myFormatYear(d) : checkInDate.value;
+    (checkInDate.value == "") ? checkInDate.value = AUX_FUNCTIONS.myFormatYear(d) : checkInDate.value;
     (checkOutDate.value == "") ? checkOutDate.value = checkInDate.value : checkOutDate.value;
     // push them
-    auxFunctions.pushToArr(checkInDate.value);
-    auxFunctions.pushToArr(checkOutDate.value);
+    AUX_FUNCTIONS.pushToArr(checkInDate.value);
+    AUX_FUNCTIONS.pushToArr(checkOutDate.value);
     // check how many numbers infront
-    numbersFront = auxFunctions.checkLengthFront(arrDates);
+    numbersFront = AUX_FUNCTIONS.checkLengthFront(arrDates);
     // check regex
-    bolean = auxFunctions.checkSymbol(checkInDate.value);
+    bolean = AUX_FUNCTIONS.checkSymbol(checkInDate.value);
     // check if date comes in dd-MM-yyyy
     // check both index as the arrays will be always the same length
     // how to refac with map?
     let i = 0;
     for (i; i < arrDates.length; i++) {
         if (numbersFront[i] == 2)
-            arrDates[i] = auxFunctions.cleanAndReverseDate(arrDates[i]);
-        if (auxFunctions.checkSymbol(arrDates[i]) == true)
-            arrDates[i] = auxFunctions.cleanDate(arrDates[i]);
+            arrDates[i] = AUX_FUNCTIONS.cleanAndReverseDate(arrDates[i]);
+        if (AUX_FUNCTIONS.checkSymbol(arrDates[i]) == true)
+            arrDates[i] = AUX_FUNCTIONS.cleanDate(arrDates[i]);
     }
     // iniciate guests
     kindOfGuests();
@@ -77,7 +77,7 @@ const showPrice = priceRoom.map((e) => e = e.innerText).sort((a, b) => a - b);
 // Take value from select html
 function getMePeopleFromSelect(people) {
     let bookedPeople = 0;
-    let getMePeople = auxFunctions.getMeValueSelect(people);
+    let getMePeople = AUX_FUNCTIONS.getMeValueSelect(people);
     // making sure is a number
     bookedPeople = parseInt(getMePeople.value);
     return bookedPeople;
@@ -96,13 +96,13 @@ function createDataObject() {
     console.log(newOne.toString());
 }
 /************************* aux functions ********************************/
-let auxFunctions = {
+const AUX_FUNCTIONS = {
     // converting new date
     myFormatYear: (str) => str.toISOString().slice(0, 10),
     // pusher
     pushToArr: (num) => arrDates.push(num),
     // iterate over them all
-    checkLengthFront: (arr) => arr.map((e) => e = auxFunctions.howManyIntegersInFront(e)),
+    checkLengthFront: (arr) => arr.map((e) => e = AUX_FUNCTIONS.howManyIntegersInFront(e)),
     // check how many integers infront
     howManyIntegersInFront: (str) => str.replace(/[^\d].*/, '').length,
     // checking special symbol

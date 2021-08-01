@@ -52,26 +52,26 @@ function getDates() {
     let d: Date = new Date();
 
     // empty fields | null
-    (checkInDate.value == "") ? checkInDate.value = auxFunctions.myFormatYear(d) : checkInDate.value;
+    (checkInDate.value == "") ? checkInDate.value = AUX_FUNCTIONS.myFormatYear(d) : checkInDate.value;
     (checkOutDate.value == "") ? checkOutDate.value = checkInDate.value : checkOutDate.value;
 
     // push them
-    auxFunctions.pushToArr(checkInDate.value);
-    auxFunctions.pushToArr(checkOutDate.value);
+    AUX_FUNCTIONS.pushToArr(checkInDate.value);
+    AUX_FUNCTIONS.pushToArr(checkOutDate.value);
 
     // check how many numbers infront
-    numbersFront = auxFunctions.checkLengthFront(arrDates);
+    numbersFront = AUX_FUNCTIONS.checkLengthFront(arrDates);
 
     // check regex
-    bolean = auxFunctions.checkSymbol(checkInDate.value);
+    bolean = AUX_FUNCTIONS.checkSymbol(checkInDate.value);
 
     // check if date comes in dd-MM-yyyy
     // check both index as the arrays will be always the same length
     // how to refac with map?
     let i: number = 0;
     for (i; i < arrDates.length; i++) {
-        if (numbersFront[i] == 2) arrDates[i] = auxFunctions.cleanAndReverseDate(arrDates[i]);
-        if (auxFunctions.checkSymbol(arrDates[i]) == true) arrDates[i] = auxFunctions.cleanDate(arrDates[i]);
+        if (numbersFront[i] == 2) arrDates[i] = AUX_FUNCTIONS.cleanAndReverseDate(arrDates[i]);
+        if (AUX_FUNCTIONS.checkSymbol(arrDates[i]) == true) arrDates[i] = AUX_FUNCTIONS.cleanDate(arrDates[i]);
     }
     // iniciate guests
     kindOfGuests();
@@ -90,12 +90,12 @@ function kindOfGuests(): void {
     myKids = getMePeopleFromSelect(guestsKids);
 }
 // show me the money
-const showPrice = priceRoom.map((e: any) => e = e.innerText).sort((a: any, b: any) => a - b)
+const showPrice = priceRoom.map((e: any) => e = e.innerText).sort((a: any, b: any) => a - b);
 
 // Take value from select html
 function getMePeopleFromSelect(people: string): number {
     let bookedPeople: number = 0;
-    let getMePeople = auxFunctions.getMeValueSelect(people);
+    let getMePeople = AUX_FUNCTIONS.getMeValueSelect(people);
     // making sure is a number
     bookedPeople = parseInt(getMePeople.value);
     return bookedPeople;
@@ -104,7 +104,7 @@ function getMePeopleFromSelect(people: string): number {
 // How many rooms the user is watching
 function howManyRoomsChecked(): number {
     seenRooms++;
-    newOne.howManyRoomsChecked(seenRooms);
+    newOne.numberRoomsChecked(seenRooms);
     console.log(newOne.toString());
     return seenRooms;
 }
@@ -117,7 +117,7 @@ function createDataObject() {
 }
 
 /************************* aux functions ********************************/
-let auxFunctions: any = {
+const AUX_FUNCTIONS: any = {
     // converting new date
     myFormatYear: (str: any) => str.toISOString().slice(0, 10),
 
@@ -125,7 +125,7 @@ let auxFunctions: any = {
     pushToArr: (num: number) => arrDates.push(num),
 
     // iterate over them all
-    checkLengthFront: (arr: string[]) => arr.map((e: any) => e = auxFunctions.howManyIntegersInFront(e)),
+    checkLengthFront: (arr: string[]) => arr.map((e: any) => e = AUX_FUNCTIONS.howManyIntegersInFront(e)),
 
     // check how many integers infront
     howManyIntegersInFront: (str: string) => str.replace(/[^\d].*/, '').length,

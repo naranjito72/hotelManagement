@@ -74,7 +74,7 @@ class Hotel {
         let infoObject = `User's info. Check-in: ${this.myCheckIn}. Check-out: ${this.myCheckOut}.\n
                                   Minimum price shown in screen: ${this.myMinimumPrice}. Currency shown in screen at first: ${this.myCurrencyVisitor}\n 
                                   Rooms visited by user: ${this.myHowManyRoomsVisited}. Language Browser: ${this.myLangVisitors}\n
-                                  Adults value: ${this.myAdultsComing}. Kids value: ${this.myKidsComing}. Total number of guests: ${this.howManyGuests}`;
+                                  Adults value: ${this.myAdultsComing}. Kids value: ${this.myKidsComing}. Total number of guests: ${this.howManyGuests()}`;
         return infoObject;
     }
 }
