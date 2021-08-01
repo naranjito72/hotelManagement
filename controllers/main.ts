@@ -20,7 +20,7 @@ let checkInDate: any = (document.querySelector('#datein') as HTMLInputElement);
 let checkOutDate: any = (document.querySelector('#dateout') as HTMLInputElement);
 
 // amount
-let priceRoom: any = Array.from(document.querySelectorAll('.wbkv9-Amount-integerPart') as any);
+let priceRoom: any = [...(document.querySelectorAll('.wbkv9-Amount-integerPart') as any)];
 
 // currency
 let currencyHotel: any = (document.querySelector('.wbkv9-Entity-amountCurrencyLabel').innerHTML) as unknown;
@@ -32,7 +32,7 @@ let guestsAdults: any = (document.getElementById('adults') as HTMLElement);
 let guestsKids: any = (document.getElementById('kids') as HTMLElement);
 
 // rooms checked buttons
-let roomsChecked: any = Array.from(document.querySelectorAll(".wbkv9-Entity-button") as any);
+let roomsChecked: any = [...(document.querySelectorAll(".wbkv9-Entity-button") as any)];
 roomsChecked.map((el: any, ind: number) => el.addEventListener('click', howManyRoomsChecked));
 
 /**********************************************************************************/

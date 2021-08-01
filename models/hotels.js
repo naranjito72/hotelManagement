@@ -66,7 +66,7 @@ class Hotel {
         let sum = this.adultsComing + this.kidsComing;
         return sum;
     }
-    howManyRoomsChecked(num) {
+    numberRoomsChecked(num) {
         this.myHowManyRoomsVisited = num;
         return this.myHowManyRoomsVisited;
     }

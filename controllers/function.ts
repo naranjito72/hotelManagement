@@ -1,4 +1,4 @@
-
+"use strict"
 const MAIN_FUNCTIONSTWO: any = {
 
     // properties
@@ -89,7 +89,7 @@ const MAIN_FUNCTIONSTWO: any = {
     // how many rooms checked
     numberOfRoomsChecked: function (): number {
         MAIN_FUNCTIONSTWO.seenRoomsTwo++;
-        MAIN_FUNCTIONSTWO.newOneTwo.howManyRoomsChecked(MAIN_FUNCTIONSTWO.seenRoomsTwo);
+        MAIN_FUNCTIONSTWO.newOneTwo.numberRoomsChecked(MAIN_FUNCTIONSTWO.seenRoomsTwo);
         console.log(MAIN_FUNCTIONSTWO.newOneTwo.toString());
         return MAIN_FUNCTIONSTWO.seenRoomsTwo;
     },

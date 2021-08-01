@@ -1,3 +1,4 @@
+"use strict";
 const MAIN_FUNCTIONSTWO = {
     // properties
     myBooleanTwo: false,
@@ -72,7 +73,7 @@ const MAIN_FUNCTIONSTWO = {
     // how many rooms checked
     numberOfRoomsChecked: function () {
         MAIN_FUNCTIONSTWO.seenRoomsTwo++;
-        MAIN_FUNCTIONSTWO.newOneTwo.howManyRoomsChecked(MAIN_FUNCTIONSTWO.seenRoomsTwo);
+        MAIN_FUNCTIONSTWO.newOneTwo.numberRoomsChecked(MAIN_FUNCTIONSTWO.seenRoomsTwo);
         console.log(MAIN_FUNCTIONSTWO.newOneTwo.toString());
         return MAIN_FUNCTIONSTWO.seenRoomsTwo;
     },

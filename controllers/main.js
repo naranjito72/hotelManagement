@@ -17,7 +17,7 @@ console.log(getLanguage());
 let checkInDate = document.querySelector('#datein');
 let checkOutDate = document.querySelector('#dateout');
 // amount
-let priceRoom = Array.from(document.querySelectorAll('.wbkv9-Amount-integerPart'));
+let priceRoom = [...document.querySelectorAll('.wbkv9-Amount-integerPart')];
 // currency
 let currencyHotel = (document.querySelector('.wbkv9-Entity-amountCurrencyLabel').innerHTML);
 // adults
@@ -25,7 +25,7 @@ let guestsAdults = document.getElementById('adults');
 // kids
 let guestsKids = document.getElementById('kids');
 // rooms checked buttons
-let roomsChecked = Array.from(document.querySelectorAll(".wbkv9-Entity-button"));
+let roomsChecked = [...document.querySelectorAll(".wbkv9-Entity-button")];
 roomsChecked.map((el, ind) => el.addEventListener('click', howManyRoomsChecked));
 /**********************************************************************************/
 // it triggers everything
@@ -85,7 +85,7 @@ function getMePeopleFromSelect(people) {
 // How many rooms the user is watching
 function howManyRoomsChecked() {
     seenRooms++;
-    newOne.howManyRoomsChecked(seenRooms);
+    newOne.numberRoomsChecked(seenRooms);
     console.log(newOne.toString());
     return seenRooms;
 }
