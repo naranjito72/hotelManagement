@@ -120,7 +120,6 @@ const AUX_FUNCTIONSTWO: any = {
     howManyIntegersInFront: (str: string) => str.replace(/[^\d].*/, '').length,
 
     // checking special symbol
-    // passing throug the regex function i don't need anymore to check for special symbol
     checkSymbol: function (str: string): boolean {
         let symbolToCheck: RegExp = /[/]/
         let myHelp: boolean;

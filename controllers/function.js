@@ -97,7 +97,6 @@ const AUX_FUNCTIONSTWO = {
     // check how many integers infront
     howManyIntegersInFront: (str) => str.replace(/[^\d].*/, '').length,
     // checking special symbol
-    // passing throug the regex function i don't need anymore to check for special symbol
     checkSymbol: function (str) {
         let symbolToCheck = /[/]/;
         let myHelp;
