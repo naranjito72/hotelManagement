@@ -22,6 +22,9 @@ const MAIN_FUNCTIONSTWO = {
     guestsAdultsTwo: document.getElementById('adults'),
     // kids
     guestsKidsTwo: document.getElementById('kids'),
+    // bonus
+    // get all selectors rooms shown
+    allRoomsShown: [...document.querySelectorAll('.wbkv9-Entity-infoContainer')],
     // methods
     getLanguageTwo: () => (navigator.languages || [])[0] || navigator.language || 'es',
     // dates
@@ -81,10 +84,15 @@ const MAIN_FUNCTIONSTWO = {
     showPriceTwo: () => MAIN_FUNCTIONSTWO.priceRoomTwo.map((e) => e = e.innerText).sort((a, b) => a - b),
     // create Object
     createDataTwo() {
-        MAIN_FUNCTIONSTWO.newOneTwo = new Hotel(MAIN_FUNCTIONSTWO.arrDatesTwo[0], MAIN_FUNCTIONSTWO.arrDatesTwo[1], MAIN_FUNCTIONSTWO.showPriceTwo[0], MAIN_FUNCTIONSTWO.currencyHotelTwo, MAIN_FUNCTIONSTWO.seenRoomsTwo, MAIN_FUNCTIONSTWO.myAdultsTwo, MAIN_FUNCTIONSTWO.myKidsTwo, MAIN_FUNCTIONSTWO.getLanguageTwo());
+        MAIN_FUNCTIONSTWO.newOneTwo = new Hotel(MAIN_FUNCTIONSTWO.arrDatesTwo[0], MAIN_FUNCTIONSTWO.arrDatesTwo[1], MAIN_FUNCTIONSTWO.showPriceTwo()[0], MAIN_FUNCTIONSTWO.currencyHotelTwo, MAIN_FUNCTIONSTWO.seenRoomsTwo, MAIN_FUNCTIONSTWO.myAdultsTwo, MAIN_FUNCTIONSTWO.myKidsTwo, MAIN_FUNCTIONSTWO.getLanguageTwo());
         // add all guests
         MAIN_FUNCTIONSTWO.totalGuestsTwo = MAIN_FUNCTIONSTWO.newOneTwo.howManyGuests();
         console.log(MAIN_FUNCTIONSTWO.newOneTwo.toString());
+    },
+    // bonus
+    fullInfoCheapestRoom() {
+        console.log(MAIN_FUNCTIONSTWO.allRoomsShown.map((e) => e.innerText)[0]);
+        return MAIN_FUNCTIONSTWO.allRoomsShown.map((e) => e.innerText)[0];
     }
 };
 const AUX_FUNCTIONSTWO = {
@@ -114,4 +122,7 @@ const AUX_FUNCTIONSTWO = {
 let allBeginsTwo = document.getElementById('bookingBtn').addEventListener('click', MAIN_FUNCTIONSTWO.getDatesTwo);
 // rooms checked rooms
 let roomsCheckedTwo = [...document.querySelectorAll(".wbkv9-Entity-button")]
-    .map((el, ind) => el.addEventListener('click', MAIN_FUNCTIONSTWO.numberOfRoomsChecked));
+    .map((el, ind) => el.addEventListener('click', () => {
+    MAIN_FUNCTIONSTWO.numberOfRoomsChecked(),
+        MAIN_FUNCTIONSTWO.fullInfoCheapestRoom();
+}));

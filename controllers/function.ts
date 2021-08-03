@@ -20,7 +20,7 @@ const MAIN_FUNCTIONSTWO: any = {
     checkOutDateTwo: (document.querySelector('#dateout') as HTMLInputElement),
 
     // amount
-    priceRoomTwo: [...document.querySelectorAll('.wbkv9-Amount-integerPart') as any],
+    priceRoomTwo:  [...(document.querySelectorAll('.wbkv9-Amount-integerPart') as HTMLCollectionBase)],
 
     // currency
     currencyHotelTwo: (document.querySelector('.wbkv9-Entity-amountCurrencyLabel').innerHTML) as unknown,
@@ -31,6 +31,9 @@ const MAIN_FUNCTIONSTWO: any = {
     // kids
     guestsKidsTwo: (document.getElementById('kids') as HTMLElement),
 
+    // bonus
+    // get all selectors rooms shown
+    allRoomsShown:[...(document.querySelectorAll('.wbkv9-Entity-infoContainer') as HTMLCollectionBase)],
 
     // methods
     getLanguageTwo: () => (navigator.languages || [])[0] || navigator.language || 'es',
@@ -98,11 +101,16 @@ const MAIN_FUNCTIONSTWO: any = {
     showPriceTwo: () => MAIN_FUNCTIONSTWO.priceRoomTwo.map((e: any) => e = e.innerText).sort((a: any, b: any) => a - b),
     // create Object
     createDataTwo(): void {
-        MAIN_FUNCTIONSTWO.newOneTwo = new Hotel(MAIN_FUNCTIONSTWO.arrDatesTwo[0], MAIN_FUNCTIONSTWO.arrDatesTwo[1], MAIN_FUNCTIONSTWO.showPriceTwo[0], MAIN_FUNCTIONSTWO.currencyHotelTwo, MAIN_FUNCTIONSTWO.seenRoomsTwo,
+        MAIN_FUNCTIONSTWO.newOneTwo = new Hotel(MAIN_FUNCTIONSTWO.arrDatesTwo[0], MAIN_FUNCTIONSTWO.arrDatesTwo[1], MAIN_FUNCTIONSTWO.showPriceTwo()[0], MAIN_FUNCTIONSTWO.currencyHotelTwo, MAIN_FUNCTIONSTWO.seenRoomsTwo,
                                       MAIN_FUNCTIONSTWO.myAdultsTwo, MAIN_FUNCTIONSTWO.myKidsTwo, MAIN_FUNCTIONSTWO.getLanguageTwo());
         // add all guests
         MAIN_FUNCTIONSTWO.totalGuestsTwo = MAIN_FUNCTIONSTWO.newOneTwo.howManyGuests();
         console.log(MAIN_FUNCTIONSTWO.newOneTwo.toString());
+    },
+    // bonus
+    fullInfoCheapestRoom(): string {
+        console.log(MAIN_FUNCTIONSTWO.allRoomsShown.map((e: any) => e.innerText)[0]);
+        return MAIN_FUNCTIONSTWO.allRoomsShown.map((e: any) => e.innerText)[0];
     }
 }
 
@@ -141,4 +149,7 @@ const AUX_FUNCTIONSTWO: any = {
 let allBeginsTwo: any = (document.getElementById('bookingBtn') as HTMLBodyElement).addEventListener('click', MAIN_FUNCTIONSTWO.getDatesTwo);
 // rooms checked rooms
 let roomsCheckedTwo: any = [...document.querySelectorAll(".wbkv9-Entity-button") as any]
-                           .map((el: any, ind: number) => el.addEventListener('click', MAIN_FUNCTIONSTWO.numberOfRoomsChecked));
+                           .map((el: any, ind: number) => el.addEventListener('click', () => {
+                            MAIN_FUNCTIONSTWO.numberOfRoomsChecked(),
+                            MAIN_FUNCTIONSTWO.fullInfoCheapestRoom()
+                           }));
