@@ -47,4 +47,6 @@
   * Spread [Operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
 
   * Two functions in [addEventListener](https://stackoverflow.com/questions/50742349/multiple-functions-on-add-event-listener)
+
+  * querySelectorAll[MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelectorAll)
     

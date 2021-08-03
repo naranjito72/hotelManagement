@@ -22,7 +22,7 @@ let checkOutDate: any = (document.querySelector('#dateout') as HTMLInputElement)
 
 // amount
 let priceRoom: any = [...(document.querySelectorAll('.wbkv9-Amount-integerPart') as HTMLCollectionBase)];
-console.log(priceRoom);
+//console.log(priceRoom);
 
 // currency
 let currencyHotel: any = (document.querySelector('.wbkv9-Entity-amountCurrencyLabel').innerHTML) as unknown;

@@ -18,7 +18,7 @@ let checkInDate = document.querySelector('#datein');
 let checkOutDate = document.querySelector('#dateout');
 // amount
 let priceRoom = [...document.querySelectorAll('.wbkv9-Amount-integerPart')];
-console.log(priceRoom);
+//console.log(priceRoom);
 // currency
 let currencyHotel = (document.querySelector('.wbkv9-Entity-amountCurrencyLabel').innerHTML);
 // adults

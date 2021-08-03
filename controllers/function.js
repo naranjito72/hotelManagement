@@ -25,10 +25,10 @@ const MAIN_FUNCTIONSTWO = {
     // methods
     getLanguageTwo: () => (navigator.languages || [])[0] || navigator.language || 'es',
     // dates
-    getDatesTwo: function () {
+    getDatesTwo() {
         // clean arr
-        MAIN_FUNCTIONSTWO.arrDatesTwo = [];
-        MAIN_FUNCTIONSTWO.numbersFrontTwo = [];
+        this.arrDatesTwo = [];
+        this.numbersFrontTwo = [];
         // create new date
         let d = new Date();
         // empty fields | null
@@ -38,32 +38,32 @@ const MAIN_FUNCTIONSTWO = {
         AUX_FUNCTIONSTWO.pushToArr(MAIN_FUNCTIONSTWO.checkInDateTwo.value);
         AUX_FUNCTIONSTWO.pushToArr(MAIN_FUNCTIONSTWO.checkOutDateTwo.value);
         // check how many numbers infront
-        MAIN_FUNCTIONSTWO.numbersFrontTwo = AUX_FUNCTIONSTWO.checkLengthFront(MAIN_FUNCTIONSTWO.arrDatesTwo);
+        this.numbersFrontTwo = AUX_FUNCTIONSTWO.checkLengthFront(this.arrDatesTwo);
         // check regex
-        MAIN_FUNCTIONSTWO.myBoolean = AUX_FUNCTIONSTWO.checkSymbol(MAIN_FUNCTIONSTWO.checkInDateTwo.value);
+        this.myBoolean = AUX_FUNCTIONSTWO.checkSymbol(MAIN_FUNCTIONSTWO.checkInDateTwo.value);
         // check if date comes in dd-MM-yyyy
         // check both index as the arrays will be always the same length
         // how to refac with map?
         let i = 0;
-        for (i; i < MAIN_FUNCTIONSTWO.arrDatesTwo.length; i++) {
-            if (MAIN_FUNCTIONSTWO.numbersFrontTwo[i] == 2)
-                MAIN_FUNCTIONSTWO.arrDatesTwo[i] = AUX_FUNCTIONSTWO.cleanAndReverseDate(MAIN_FUNCTIONSTWO.arrDatesTwo[i]);
-            if (AUX_FUNCTIONSTWO.checkSymbol(MAIN_FUNCTIONSTWO.arrDatesTwo[i]) == true)
-                MAIN_FUNCTIONSTWO.arrDatesTwo[i] = AUX_FUNCTIONSTWO.cleanDate(MAIN_FUNCTIONSTWO.arrDatesTwo[i]);
+        for (i; i < this.arrDatesTwo.length; i++) {
+            if (this.numbersFrontTwo[i] == 2)
+                this.arrDatesTwo[i] = AUX_FUNCTIONSTWO.cleanAndReverseDate(this.arrDatesTwo[i]);
+            if (AUX_FUNCTIONSTWO.checkSymbol(this.arrDatesTwo[i]) == true)
+                this.arrDatesTwo[i] = AUX_FUNCTIONSTWO.cleanDate(this.arrDatesTwo[i]);
         }
         // what kind of guest are comming
         MAIN_FUNCTIONSTWO.kindGuestsTwo();
         // create the object
         MAIN_FUNCTIONSTWO.createDataTwo();
-        return MAIN_FUNCTIONSTWO.arrDatesTwo;
+        return this.arrDatesTwo;
     },
     // kind of guest
-    kindGuestsTwo: function () {
-        MAIN_FUNCTIONSTWO.myAdultsTwo = MAIN_FUNCTIONSTWO.getPeopleSelectTwo(MAIN_FUNCTIONSTWO.guestsAdultsTwo);
-        MAIN_FUNCTIONSTWO.myKidsTwo = MAIN_FUNCTIONSTWO.getPeopleSelectTwo(MAIN_FUNCTIONSTWO.guestsKidsTwo);
+    kindGuestsTwo() {
+        this.myAdultsTwo = this.getPeopleSelectTwo(this.guestsAdultsTwo);
+        this.myKidsTwo = this.getPeopleSelectTwo(this.guestsKidsTwo);
     },
     // take values from html
-    getPeopleSelectTwo: function (peopleTwo) {
+    getPeopleSelectTwo(peopleTwo) {
         let bookedPeople = 0;
         let getMePeople = AUX_FUNCTIONSTWO.getMeValueSelect(peopleTwo);
         // making sure is a number
@@ -71,20 +71,20 @@ const MAIN_FUNCTIONSTWO = {
         return bookedPeople;
     },
     // how many rooms checked
-    numberOfRoomsChecked: function () {
-        MAIN_FUNCTIONSTWO.seenRoomsTwo++;
-        MAIN_FUNCTIONSTWO.newOneTwo.numberRoomsChecked(MAIN_FUNCTIONSTWO.seenRoomsTwo);
-        console.log(MAIN_FUNCTIONSTWO.newOneTwo.toString());
-        return MAIN_FUNCTIONSTWO.seenRoomsTwo;
+    numberOfRoomsChecked() {
+        this.seenRoomsTwo++;
+        this.newOneTwo.numberRoomsChecked(this.seenRoomsTwo);
+        console.log(this.newOneTwo.toString());
+        return this.seenRoomsTwo;
     },
     // show me the money
-    showPriceTwo: () => MAIN_FUNCTIONSTWO.priceRoomTwo.map((e) => e = e.innerText).sort((a, b) => a - b),
+    showPriceTwo: () => this.priceRoomTwo.map((e) => e = e.innerText).sort((a, b) => a - b),
     // create Object
-    createDataTwo: function () {
-        MAIN_FUNCTIONSTWO.newOneTwo = new Hotel(MAIN_FUNCTIONSTWO.arrDatesTwo[0], MAIN_FUNCTIONSTWO.arrDatesTwo[1], MAIN_FUNCTIONSTWO.showPriceTwo[0], MAIN_FUNCTIONSTWO.currencyHotelTwo, MAIN_FUNCTIONSTWO.seenRoomsTwo, MAIN_FUNCTIONSTWO.myAdultsTwo, MAIN_FUNCTIONSTWO.myKidsTwo, MAIN_FUNCTIONSTWO.getLanguageTwo());
+    createDataTwo() {
+        this.newOneTwo = new Hotel(this.arrDatesTwo[0], this.arrDatesTwo[1], this.showPriceTwo[0], this.currencyHotelTwo, this.seenRoomsTwo, this.myAdultsTwo, this.myKidsTwo, this.getLanguageTwo());
         // add all guests
-        MAIN_FUNCTIONSTWO.totalGuestsTwo = MAIN_FUNCTIONSTWO.newOneTwo.howManyGuests();
-        console.log(MAIN_FUNCTIONSTWO.newOneTwo.toString());
+        this.totalGuestsTwo = this.newOneTwo.howManyGuests();
+        console.log(this.newOneTwo.toString());
     }
 };
 const AUX_FUNCTIONSTWO = {
@@ -97,7 +97,7 @@ const AUX_FUNCTIONSTWO = {
     // check how many integers infront
     howManyIntegersInFront: (str) => str.replace(/[^\d].*/, '').length,
     // checking special symbol
-    checkSymbol: function (str) {
+    checkSymbol(str) {
         let symbolToCheck = /[/]/;
         let myHelp;
         (symbolToCheck.test(str)) ? myHelp = true : myHelp = false;
